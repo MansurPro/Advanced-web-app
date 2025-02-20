@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work with Arrays - Prices</title>
+    <script>
+        function processPrices() {
+            let input = prompt("Enter prices separated by commas (e.g., 10, 20, 30, 40):", "10, 20, 30, 40, 50");
+            if (!input) return;
+
+            let prices = input.split(',');
+            console.log("Original array:", prices);
+
+            for (let i = 0; i < prices.length; i++) {
+                prices[i] = parseFloat(prices[i].trim());
+                if (isNaN(prices[i]) || prices[i] <= 0) {
+                    alert(`Invalid price removed: ${prices[i]}`);
+                    prices.splice(i, 1);
+                    i--; // Adjust index after removal
+                }
+            }
+
+            console.log("Validated array:", prices);
+
+            let total = 0;
+            for (let price of prices) {
+                total += price;
+            }
+
+            console.log("Total:", total);
+
+            if (prices.length > 3) {
+                let discount = total * 0.10;
+                let newTotal = total - discount;
+                alert(`Old total: ${total.toFixed(2)}\n${prices.length} items earns a 10% discount!\nNew total: ${newTotal.toFixed(2)}`);
+            } else {
+                alert(`Total: ${total.toFixed(2)}`);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Work with Arrays - Prices</h1>
+    <button onclick="processPrices()">Enter Prices</button>
+</body>
+</html>

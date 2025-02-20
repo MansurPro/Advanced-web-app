@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries Array Exercise</title>
+    <script>
+        function manageCountries() {
+            let countries = [];
+
+            while (true) {
+                let country = prompt("Enter a country name (or type 'stop' to finish):", "").trim();
+
+                if (country.toLowerCase() === 'stop') {
+                    break;
+                }
+
+                if (countries.includes(country)) {
+                    alert(`${country} is already in the list.`);
+                } else {
+                    countries.push(country);
+                    alert(`${country} added to the list.`);
+                }
+
+                if (countries.length > 3) {
+                    let removedCountry = countries.shift();
+                    alert(`Too many countries! ${removedCountry} was removed from the list.`);
+                }
+            }
+
+            if (countries.length > 0) {
+                alert(`Here are the countries you entered:\n${countries.join('\n')}`);
+            } else {
+                alert("No countries were entered.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Countries Array Exercise</h1>
+    <button onclick="manageCountries()">Enter Countries</button>
+</body>
+</html>

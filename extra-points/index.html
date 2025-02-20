@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exercises</title>
+    <script>
+        function runJavaScriptExercises() {
+            // Get array from user prompt
+            let array = prompt("Enter an array of numbers separated by commas:")
+                .split(",")
+                .map(Number);
+
+            // 1. Get length of the array
+            let length = array.length;
+
+            // 2. Get user input for adding a new element
+            let newElement = Number(prompt("Enter a new element to add to the array:"));
+            array.push(newElement); // Add new element to array
+
+            // 3. Remove the last item from the array
+            let removedElement = array.pop();
+
+            // 4. Convert a string to uppercase
+            let inputString = prompt("Enter a string to convert to uppercase:");
+            let upperCaseString = inputString.toUpperCase();
+
+            // 5. Get the current date and time
+            let currentDateTime = new Date().toLocaleString();
+
+            // 6. Check if a given number is even or odd
+            let checkNumber = Number(prompt("Enter a number to check even or odd:"));
+            let evenOdd = checkNumber % 2 === 0 ? "Even" : "Odd";
+
+            // 7. Find the largest of three numbers
+            let num1 = Number(prompt("Enter first number:"));
+            let num2 = Number(prompt("Enter second number:"));
+            let num3 = Number(prompt("Enter third number:"));
+            let largest = Math.max(num1, num2, num3);
+
+            // 8. Check if a number is between 10 and 20 (inclusive)
+            let rangeNumber = Number(prompt("Enter a number to check if it's between 10 and 20:"));
+            let inRange = rangeNumber >= 10 && rangeNumber <= 20 ? "Yes" : "No";
+
+            // 9. Find the sum of all numbers in an array
+            let sum = array.reduce((acc, num) => acc + num, 0);
+
+            // 10. Check if a person is eligible to vote (18 or older)
+            let age = Number(prompt("Enter age to check voting eligibility:"));
+            let canVote = age >= 18 ? "Eligible to vote" : "Not eligible to vote";
+
+            // Prepare the result output
+            let result = `Array length: ${length}\nArray after addition: ${array.join(", ")}\nLast removed element: ${removedElement}\n`;
+            result += `Uppercase String: ${upperCaseString}\nCurrent Date & Time: ${currentDateTime}\n`;
+            result += `Even/Odd Check: ${checkNumber} is ${evenOdd}\nLargest Number: ${largest}\n`;
+            result += `Is ${rangeNumber} in range (10-20)? ${inRange}\nSum of array elements: ${sum}\nVoting Eligibility: ${canVote}`;
+
+            alert(result);
+        }
+    </script>
+</head>
+<body>
+    <h1>JavaScript Practice Exercises</h1>
+    <p>Click the button below to start answering the JavaScript questions.</p>
+    <button onclick="runJavaScriptExercises()">Start Exercises</button>
+</body>
+</html>
