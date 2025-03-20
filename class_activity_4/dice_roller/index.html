@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dice Roller</title>
+</head>
+<body>
+    <script>
+    "use strict";
+
+    // rollDie() function with default value of 6 sides
+    const rollDie = (sides = 6) => {
+        return Math.ceil(Math.random() * sides);
+    };
+
+    // rollDice() function to roll multiple dice
+    const rollDice = (numDice, sides) => {
+        const dice = [];
+        for (let i = 0; i < numDice; i++) {
+            dice.push(rollDie(sides));
+        }
+        return dice;
+    };
+
+    // Get the number of dice to roll from the user
+    const numDice = parseInt(prompt("Enter number of dice to roll:", "4"));
+
+    // Call rollDice and store the result in a constant
+    const dice = rollDice(numDice);
+
+    // Display the dice rolled
+    alert("Dice rolled: " + dice.join(" "));
+    
+    </script>
+</body>
+</html>
